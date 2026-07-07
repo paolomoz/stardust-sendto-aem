@@ -1,0 +1,25 @@
+/* experiences — three-up card grid (AuthorKit scope: .experiences) */
+
+.experiences { background: #fff; }
+
+.exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+.experiences .exp-card {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  background: #fff;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.experiences .exp-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+
+.experiences .exp-media { aspect-ratio: 16 / 10; overflow: hidden; }
+.experiences .exp-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.6,.2,1); }
+.experiences .exp-card:hover .exp-media img { transform: scale(1.06); }
+
+.experiences .exp-body { padding: 20px 22px 24px; }
+.experiences .exp-body .title { color: var(--primary); margin-bottom: 8px; }
+.experiences .exp-body p { font-size: 0.9rem; color: var(--ink-muted); margin: 0 0 14px; }
+
+@media (max-width: 900px) { .exp-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .exp-grid { grid-template-columns: 1fr; } }

@@ -1,0 +1,55 @@
+/* hotels — feature-plus-grid catalogue (AuthorKit scope: .hotels) */
+
+.hotels { background: var(--surface-warm); }
+
+.hotels-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+.hotels .hotel-card {
+  position: relative;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  background: #000;
+  min-height: 300px;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.hotels .hotel-card.feature { grid-row: span 2; min-height: 100%; }
+.hotels .hotel-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  transition: transform .6s cubic-bezier(.2,.6,.2,1);
+}
+.hotels .hotel-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+.hotels .hotel-card:hover img { transform: scale(1.05); }
+
+.hotels .hotel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 32%, rgba(46,14,52,.28) 58%, rgba(46,14,52,.86) 100%);
+}
+.hotels .hotel-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 26px;
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.hotels .hotel-body .title { color: #fff; text-shadow: 0 1px 12px rgba(0,0,0,.5); }
+.hotels .hotel-region { display: inline-block; margin-bottom: 8px; color: var(--sand); }
+.hotels .hotel-actions { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
+.hotels .hotel-actions .readmore { color: #fff; background-image: linear-gradient(90deg, var(--sand), var(--accent-teal)); }
+
+.hotels-foot { display: flex; justify-content: center; margin-top: 40px; }
+
+@media (max-width: 820px) {
+  .hotels-grid { grid-template-columns: 1fr; }
+  .hotels .hotel-card.feature { grid-row: auto; min-height: 320px; }
+}

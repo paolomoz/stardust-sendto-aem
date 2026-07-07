@@ -1,0 +1,34 @@
+/* benefits — purple-ladder value-prop band (AuthorKit scope: .benefits) */
+
+.benefits { background: var(--ladder); color: #fff; position: relative; }
+.benefits::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 140% at 92% -20%, rgba(148,210,190,.22) 0%, transparent 46%);
+  pointer-events: none;
+}
+.benefits .container { position: relative; }
+.benefits .section-head { max-width: none; margin-bottom: 0; }
+.benefits .section-head .label { color: var(--sand); }
+.benefits .section-head .headline { color: #fff; max-width: 24ch; }
+
+.benefits-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 40px; }
+.benefits .perk { padding: 6px 28px; }
+.benefits .perk:not(:first-child) { border-left: 1px solid rgba(255,255,255,.24); }
+.benefits .perk-icon { color: var(--accent-teal); margin-bottom: 14px; }
+.benefits .perk h3 { font-size: 1.12rem; font-weight: 700; line-height: 1.25; margin: 0 0 8px; color: #fff; }
+.benefits .perk p { font-size: 0.9rem; color: rgba(255,255,255,.82); margin: 0; }
+
+.benefits-foot { margin-top: 36px; }
+.benefits-foot .readmore { color: #fff; background-image: linear-gradient(90deg, var(--sand), var(--accent-teal)); }
+
+@media (max-width: 860px) {
+  .benefits-grid { grid-template-columns: 1fr 1fr; row-gap: 28px; }
+  .benefits .perk:nth-child(odd) { border-left: none; padding-left: 0; }
+}
+@media (max-width: 520px) {
+  .benefits-grid { grid-template-columns: 1fr; }
+  .benefits .perk { border-left: none !important; padding-left: 0; padding-right: 0; border-top: 1px solid rgba(255,255,255,.2); padding-top: 22px; }
+  .benefits .perk:first-child { border-top: none; padding-top: 0; }
+}

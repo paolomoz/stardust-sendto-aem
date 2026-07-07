@@ -1,0 +1,66 @@
+/* offers — three-up offer card grid with time-limited flag (scope: .offers) */
+
+.offers { background: var(--surface-warm); }
+
+.offers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+.offers .offer-card {
+  position: relative;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.offers .offer-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+
+.offers .offer-media { aspect-ratio: 3 / 2; overflow: hidden; position: relative; }
+.offers .offer-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.6,.2,1); }
+.offers .offer-card:hover .offer-media img { transform: scale(1.05); }
+
+/* captured time-limited flag — brand orange kept as the signal (accent bar + dot) */
+.offers .offer-flag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  color: var(--ink-slate);
+  font-family: var(--font-label);
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 12px 6px 10px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  border-left: 3px solid var(--flag-orange);
+}
+.offers .offer-flag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--flag-orange);
+}
+
+.offers .offer-body { padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+.offers .offer-title { font-size: 1.05rem; font-weight: 700; line-height: 1.3; color: var(--text); margin: 0; }
+.offers .offer-loc {
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-weight: 600;
+}
+.offers .offer-actions { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+
+.offers-foot { display: flex; justify-content: center; margin-top: 40px; }
+
+@media (max-width: 900px) { .offers-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .offers-grid { grid-template-columns: 1fr; } }
